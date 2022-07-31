@@ -1,0 +1,109 @@
+{
+  "name": "blog",
+  "description": "Calpa's Blog",
+  "version": "1.0.0",
+  "author": "Calpa Liu <calpaliu@gmail.com>",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-brands-svg-icons": "^5.3.1",
+    "@fortawesome/free-regular-svg-icons": "^5.3.1",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "axios": "^0.21.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "dayjs": "^1.7.5",
+    "dotenv": "^7.0.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "gatsby": "^2.2.1",
+    "gatsby-link": "^2.0.16",
+    "gatsby-paginate": "^1.0.17",
+    "gatsby-plugin-catch-links": "^2.0.13",
+    "gatsby-plugin-feed": "^2.0.15",
+    "gatsby-plugin-layout": "^1.0.13",
+    "gatsby-plugin-manifest": "^2.0.24",
+    "gatsby-plugin-netlify": "^2.0.13",
+    "gatsby-plugin-nprogress": "^2.0.10",
+    "gatsby-plugin-offline": "^3.5.0",
+    "gatsby-plugin-react-helmet": "^3.0.10",
+    "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-plugin-sentry": "^1.0.0",
+    "gatsby-plugin-sitemap": "^2.0.10",
+    "gatsby-plugin-webpack-bundle-analyzer": "^1.0.3",
+    "gatsby-remark-autolink-headers": "^2.0.16",
+    "gatsby-remark-external-links": "0.0.4",
+    "gatsby-remark-prismjs": "^3.2.6",
+    "gatsby-source-filesystem": "^2.0.27",
+    "gatsby-transformer-remark": "^2.3.7",
+    "gitalk": "^1.5.3",
+    "han-css": "^3.3.0",
+    "highlight.js": "^10.4.1",
+    "lozad": "^1.6.0",
+    "md5": "^2.2.1",
+    "node-sass": "^4.9.3",
+    "prismjs": "^1.15.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-ga": "^2.5.3",
+    "react-helmet": "^5.2.0",
+    "react-transition-group": "^2.5.2",
+    "rimraf": "^2.6.2",
+    "smooth-scroll": "^16.0.0",
+    "webpack": "^4.19.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "lint-staged"
+    }
+  },
+  "scripts": {
+    "start": "npm run develop",
+    "build": "gatsby build --prefix-paths",
+    "develop": "gatsby develop",
+    "develop:remote": "gatsby develop -p 8080 -H 0.0.0.0",
+    "deploy": "npm run build && gh-pages -d public",
+    "format": "eslint --fix --ignore-path .gitignore .",
+    "format-style": "stylelint src/**/*.scss --syntax=scss",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "functions": "netlify-lambda serve functions",
+    "reset": "rimraf pubilc/ .cache/",
+    "commit": "npx git-cz",
+    "revert": "node ./scripts/revertConfig.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-import-resolver-webpack": "^0.10.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-react": "^7.11.1",
+    "gh-pages": "^2.0.0",
+    "husky": "^1.0.0-rc.14",
+    "lint-staged": "^8.0.4",
+    "prettier": "^1.7.4",
+    "stylelint": "^9.5.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-scss": "^3.4.0"
+  },
+  "lint-staged": {
+    "linters": {
+      "**/*.js": [
+        "eslint --fix",
+        "git add"
+      ],
+      "**/*.css": "stylelint",
+      "**/*.scss": "stylelint --syntax=scss"
+    },
+    "ignore": [
+      "**/dist/*.min.js"
+    ]
+  }
+}
