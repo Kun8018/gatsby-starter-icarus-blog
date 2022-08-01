@@ -35,6 +35,7 @@ const Page = ({ pageContext, location }) => {
   const {
     group, index, first, last, pathPrefix,
   } = pageContext;
+  console.log('group', pageContext);
 
   const previousUrl = index - 1 === 1 ? '' : `/${pathPrefix}/${index - 1}`;
   const nextUrl = `/${pathPrefix}/${index + 1}`;
@@ -49,9 +50,19 @@ const Page = ({ pageContext, location }) => {
       >
         <Sidebar />
         <div className="col-xl-6 col-lg-7 col-md-12 col-xs-12 order-2">
-          {group.map(({ node }) => (
-            <Card {...node.frontmatter} url={node.frontmatter.slug ? node.frontmatter.slug : node.fields.slug} key={node.fields.slug} />
-          ))}
+          {group.map(({ node }) => {
+            const { hidden } = node.frontmatter;
+            if (hidden === true) {
+              return <div />;
+            }
+            return (
+              <Card
+                {...node.frontmatter}
+                url={node.frontmatter.slug ? node.frontmatter.slug : node.fields.slug}
+                key={node.fields.slug}
+              />
+            );
+          })}
 
           <div
             className="row"

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { config } from '../../../data';
 
 import Information from './Information';
+import Friend from './Friend';
 
 import './index.scss';
 
@@ -32,12 +33,12 @@ const Icon = ({ href, icon }) => (
   </a>
 );
 
-const Sidebar = ({ totalCount, latestPosts }) => (
-  <header className="intro-header site-heading text-center col-xl-2 col-lg-3 col-xs-12 order-lg-1">
+const Sidebar = ({ totalCount, latestPosts, content }) => (
+  <header className="intro-header site-heading text-center col-xl-3 col-lg-3 col-xs-12 order-lg-1">
     <div className="about-me">
       <Link to={about} href={about} className="name">
-        <img className="avatar" src={iconUrl} alt="Calpa" />
-        <h4>Calpa</h4>
+        <img className="avatar" src={iconUrl} alt="Kun" />
+        <h4>Kun</h4>
       </Link>
       <p className="mb-1">{wordings[0]}</p>
       <p className="mb-3">{wordings[1]}</p>
@@ -54,6 +55,8 @@ const Sidebar = ({ totalCount, latestPosts }) => (
         && <Icon href={`https://www.facebook.com/${facebook}/`} icon={['fab', 'facebook']} />
       }
       <Information totalCount={totalCount} posts={latestPosts} />
+      {content}
+      <Friend />
     </div>
   </header>
 );
@@ -66,14 +69,16 @@ Icon.propTypes = {
 Sidebar.propTypes = {
   totalCount: PropTypes.number,
   latestPosts: PropTypes.array, //eslint-disable-line
+  content: PropTypes.string,
 };
 
 Sidebar.defaultProps = {
   totalCount: 0,
   latestPosts: [],
+  content: '',
 };
 
-export default () => (
+export default ({ content }) => (
   <StaticQuery
     query={graphql`
       fragment cardData on MarkdownRemark {
@@ -88,6 +93,7 @@ export default () => (
           tags
           description
           headerImage
+          thumbnail
         }
       }
 
@@ -108,6 +114,6 @@ export default () => (
         }
       }
     `}
-    render={data => <Sidebar {...data.all} {...data.limited} />}
+    render={data => <Sidebar {...data.all} {...data.limited} content={content} />}
   />
 );

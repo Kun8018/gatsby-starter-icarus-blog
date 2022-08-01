@@ -16,6 +16,7 @@ $open-sans: "Open Sans", sans-serif; // clear-fix mixin
 
 .custom-card {
   transition: box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  border-radius: 5px;
 
   &:hover {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);

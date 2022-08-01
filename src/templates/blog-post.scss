@@ -4,9 +4,25 @@
   @media screen and (max-width: 990px) {
     padding: 5px 25px;
   }
+  margin-top: 20px;
   border-radius: 2px;
 
+  .content-list {
+    position: sticky;
+    top: 20px;
+    
+    > ul {
+      padding-left: 10px;
+
+      > li {
+        list-style: none;
+        text-align: left;
+      }
+    }
+  }
+
   .content {
+    margin-top: 60px;
     padding: 0;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 

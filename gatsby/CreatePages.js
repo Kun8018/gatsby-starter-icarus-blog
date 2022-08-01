@@ -16,6 +16,7 @@ module.exports = ({ actions, graphql }) => {
             fields {
               slug
             }
+            tableOfContents
             frontmatter {
               tags
               templateKey
@@ -27,6 +28,8 @@ module.exports = ({ actions, graphql }) => {
               tags
               description
               headerImage
+              thumbnail
+              hidden
             }
           }
         }

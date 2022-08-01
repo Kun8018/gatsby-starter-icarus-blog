@@ -105,6 +105,7 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Header Image", name: "headerImage", widget: "string" }
+      - { label: "thumbnail", name: "thumbnail", widget: "string" }
       - {
           label: "Template Key",
           hint: "如果你不知道是什麼模板的話，請輸入 blog-post",

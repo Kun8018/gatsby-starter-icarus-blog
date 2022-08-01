@@ -2,7 +2,6 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import Friend from '../Friend';
 import LatestPost from '../LatestPost';
 import './index.scss';
 
@@ -18,7 +17,6 @@ const Information = ({ totalCount, posts }) => (
     <hr />
     <LatestPost posts={posts} />
     <hr />
-    <Friend />
   </div>
 );
 

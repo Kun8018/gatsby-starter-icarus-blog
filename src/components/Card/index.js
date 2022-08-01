@@ -11,6 +11,8 @@ import './index.scss';
 const imageStyle = (headerImage, color) => ({
   backgroundColor: `#${color}`,
   backgroundImage: ` url(${parseImgur(headerImage, 'large')})`,
+  backgroundSize: 'cover',
+  borderRadius: '2px',
 });
 
 const CardHeader = ({ url, image, backgroundColor }) => (
@@ -24,16 +26,17 @@ const Card = ({
   date,
   url,
   headerImage,
+  thumbnail,
   headerBackgroundColor,
   description,
   tags = [],
 }) => (
   <div className="col-sm-12 pb-4">
     <div className="custom-card">
-      {headerImage && (
+      {thumbnail && (
         <CardHeader
           url={url}
-          image={headerImage}
+          image={headerImage || thumbnail}
           backgroundColor={headerBackgroundColor}
         />
       )}
@@ -49,8 +52,8 @@ const Card = ({
             <h4 className="title">{title}</h4>
           </Link>
           <p>{description}</p>
-          <Link to={url} href={url}>
-            ....繼續閱讀全文內容
+          <Link to={url} href={url} className="read-more">
+            阅读更多
           </Link>
         </div>
       </div>
@@ -64,6 +67,7 @@ Card.propTypes = {
   url: PropTypes.string.isRequired,
   headerImage: PropTypes.string,
   headerBackgroundColor: PropTypes.string,
+  thumbnail: PropTypes.string,
   description: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
 };
@@ -72,6 +76,7 @@ CardHeader.propTypes = Card.propTypes;
 
 Card.defaultProps = {
   headerImage: '',
+  thumbnail: '',
   tags: [],
   date: '',
   headerBackgroundColor: '',

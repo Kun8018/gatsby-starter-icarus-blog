@@ -11,15 +11,6 @@ const parseImgur = (rawImage, size = 'large') => {
     return `https://i.imgur.com/${defaultPicture}`;
   }
 
-  const mapping = {
-    'small-square': 's',
-    'big-square': 'b',
-    small: 't',
-    medium: 'm',
-    large: 'l',
-    huge: 'h',
-  };
-
   // Don't resize the png image
   // as there is a transparent bug in imgur
   if (rawImage.match('(png)|(gif)')) {
@@ -30,12 +21,11 @@ const parseImgur = (rawImage, size = 'large') => {
     return `https://i.imgur.com/${rawImage}`;
   }
 
-  const resizedImage = rawImage.replace(/(.*)\.(.*)/, `$1${mapping[size]}.$2`);
   // Prevent double http url
-  if (resizedImage.match('http')) {
-    return resizedImage;
+  if (rawImage.match('http') || rawImage.match('https')) {
+    return rawImage;
   }
-  return `https://i.imgur.com/${resizedImage}`;
+  return `https://i.imgur.com/${rawImage}`;
 };
 
 const parseTitle = (title, text) => `title="${title || text}"`;
