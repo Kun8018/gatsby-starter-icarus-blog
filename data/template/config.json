@@ -3,11 +3,11 @@
   "meta": {
     "favicon": "https://s1.ax1x.com/2020/03/27/G9OfNn.th.png",
     "keyword": "Kun, blog, JavaScript",
-    "description": "Calpa 的技術博客，開發日常，以及遇到的坑",
+    "description": "Kun‘s blog",
     "theme_color": "#384f7c",
     "google_site_verification": "riZBcestky7i9xY__A-5J-2EE65T75X1u-zgbss37Io"
   },
-  "name": "calpa",
+  "name": "kun",
   "about": "/about/",
   "email": "kunboy.zhang@gmail.com",
   "stats": {
@@ -15,7 +15,7 @@
     "title": "過去三十日數據",
     "description": "過去三十日數據"
   },
-  "title": "Kun 的技術博客",
+  "title": "Kun 的技术博客",
   "gitalk": {
     "repo": "calpa.github.io",
     "admin": ["calpa, kun"],
@@ -33,7 +33,9 @@
     }
   ],
   "iconUrl": "https://s1.ax1x.com/2020/03/27/G9OfNn.th.png",
-  "wordings": ["IT学徒、技术民工、斜杠青年,机器人爱好者、摄影爱好 PS、PR、LR、达芬奇潜在学习者"],
+  "wordings": [
+    "IT学徒、技术民工、斜杠青年,机器人爱好者、摄影爱好 PS、PR、LR、达芬奇潜在学习者"
+  ],
   "gaTrackId": "UA-84737574-3",
   "navbarList": [
     {
@@ -41,8 +43,12 @@
       "title": "留言"
     },
     {
+      "href": "/category/",
+      "title": "目录"
+    },
+    {
       "href": "/tags/",
-      "title": "Tags"
+      "title": "标签"
     },
     {
       "href": "/about/",

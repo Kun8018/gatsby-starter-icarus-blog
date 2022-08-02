@@ -30,12 +30,13 @@ module.exports = ({ actions, graphql }) => {
               headerImage
               thumbnail
               hidden
+              categories
             }
           }
         }
       }
     }
-  `).then((result) => {
+  `).then(result => {
     if (result.errors) {
       return Promise.reject(result.errors);
     }
@@ -43,6 +44,7 @@ module.exports = ({ actions, graphql }) => {
     const { edges = [] } = result.data.allMarkdownRemark;
 
     const tagSet = new Set();
+    const categorySet = new Set();
 
     createPaginatedPages({
       edges,
@@ -63,11 +65,16 @@ module.exports = ({ actions, graphql }) => {
     // 創建文章頁面
     edges.forEach(({ node }, index) => {
       const { id, frontmatter, fields } = node;
-      const { slug, tags, templateKey } = frontmatter;
+      const { slug, tags, templateKey, categories } = frontmatter;
 
       // 讀取標籤
       if (tags) {
         tags.forEach(item => tagSet.add(item));
+      }
+
+      // 读取目录
+      if (categories) {
+        categories.forEach(item => categorySet.add(item));
       }
 
       // 允许自定义地址
@@ -91,12 +98,23 @@ module.exports = ({ actions, graphql }) => {
     });
 
     // 創建標籤頁面
-    return tagSet.forEach((tag) => {
+    tagSet.forEach(tag => {
       createPage({
         path: `/tag/${tag}`,
         component: path.resolve('src/templates/tag.js'),
         context: {
           tag,
+        },
+      });
+    });
+
+    // 創建標籤頁面
+    return categorySet.forEach(category => {
+      createPage({
+        path: `/category/${category}`,
+        component: path.resolve('src/templates/category.js'),
+        context: {
+          category,
         },
       });
     });

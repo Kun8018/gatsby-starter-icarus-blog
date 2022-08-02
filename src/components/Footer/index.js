@@ -29,11 +29,11 @@ const Footer = () => (
           </p>
           <p className="copyright">
             Copyright&nbsp;
-            <ExternalLink href="https://calpa.me/" title="&copy;Calpa" />
+            <ExternalLink href="https://kunzhang.me/" title="&copy;Kun" />
             &nbsp;
             {config.title}
             {new Date().getFullYear()}
-            &nbsp;Theme by Calpa Liu
+            &nbsp;Theme by Kun Zhang
           </p>
         </div>
       </div>

@@ -15,8 +15,6 @@ const Information = ({ totalCount, posts }) => (
       &nbsp;篇文章
     </p>
     <hr />
-    <LatestPost posts={posts} />
-    <hr />
   </div>
 );
 

@@ -7,6 +7,7 @@ import Sidebar from '../components/Sidebar';
 import ShareBox from '../components/ShareBox';
 
 import './index.scss';
+import RightSidebar from '../components/RightSidebar';
 
 const NavLinkText = ({ color, text }) => (
   <div
@@ -32,9 +33,7 @@ const NavLink = ({ test, url, text }) => {
 };
 
 const Page = ({ pageContext, location }) => {
-  const {
-    group, index, first, last, pathPrefix,
-  } = pageContext;
+  const { group, index, first, last, pathPrefix } = pageContext;
   console.log('group', pageContext);
 
   const previousUrl = index - 1 === 1 ? '' : `/${pathPrefix}/${index - 1}`;
@@ -42,12 +41,7 @@ const Page = ({ pageContext, location }) => {
 
   return (
     <React.Fragment>
-      <div
-        className="row homepage"
-        style={{
-          marginTop: 20,
-        }}
-      >
+      <div className="row homepage">
         <Sidebar />
         <div className="col-xl-6 col-lg-7 col-md-12 col-xs-12 order-2">
           {group.map(({ node }) => {
@@ -58,7 +52,11 @@ const Page = ({ pageContext, location }) => {
             return (
               <Card
                 {...node.frontmatter}
-                url={node.frontmatter.slug ? node.frontmatter.slug : node.fields.slug}
+                url={
+                  node.frontmatter.slug
+                    ? node.frontmatter.slug
+                    : node.fields.slug
+                }
                 key={node.fields.slug}
               />
             );
@@ -79,7 +77,8 @@ const Page = ({ pageContext, location }) => {
             </div>
           </div>
         </div>
-        <div className="col-xl-2 col-lg-1 order-3" />
+        <RightSidebar />
+        {/* <div className="col-xl-2 col-lg-1 order-3" /> */}
       </div>
       <ShareBox url={location.href} hasCommentBox={false} />
     </React.Fragment>
