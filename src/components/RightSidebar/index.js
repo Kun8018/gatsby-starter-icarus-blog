@@ -1,29 +1,45 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
 import './index.scss';
 import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
 
-const RightSidebar = ({ data, latestPosts }) => {
+const RightSidebar = ({ latestPosts }) => {
+  console.log('latestPosts', latestPosts);
   return (
     <div className="col-xl-3 col-lg-1 order-3">
       <div className="box">
         <span className="time">最新文章</span>
         {(latestPosts || []).map(item => {
-          const cardData = item.node.frontmatter;
-          const time = dayjs(cardData?.date).format('YYYY-MM-DD');
+          const { frontmatter, fields } = item.node;
+          const time = dayjs(frontmatter?.date).format('YYYY-MM-DD');
           return (
-            <div className="flex">
-              <img src={cardData?.thumbnail} alt width="64" height="64" />
-              <div className="text">
-                <p className="time">{time}</p>
-                {cardData?.title}
+            <Link
+              to={frontmatter.slug || fields.slug}
+              href={frontmatter.slug || fields.slug}
+            >
+              <div className="flex">
+                <img src={frontmatter?.thumbnail} alt width="64" height="64" />
+                <div className="text">
+                  <p className="time">{time}</p>
+                  {frontmatter?.title}
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
+      <div className="box" style={{ marginTop: '20px' }}>
+        Archive
+      </div>
     </div>
   );
+};
+
+RightSidebar.propTypes = {
+  latestPosts: PropTypes.arrayOf({
+    node: { frontmatter: { date: PropTypes.string } },
+  }),
 };
 
 export default () => (

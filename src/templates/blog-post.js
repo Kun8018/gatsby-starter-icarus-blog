@@ -52,16 +52,20 @@ class BlogPost extends Component {
   render() {
     const { node } = this.data.content.edges[0];
 
-    const { html, frontmatter, fields, excerpt, tableOfContents } = node;
+    const {
+      html, frontmatter, fields, excerpt, tableOfContents,
+    } = node;
     console.log('node', node);
     const { slug } = fields;
 
-    const { date, headerImage, title, thumbnail } = frontmatter;
+    const {
+      date, headerImage, title, thumbnail,
+    } = frontmatter;
 
     return (
       <div className="row post order-2">
         <Sidebar
-          content={
+          content={(
             <div>
               <p>目录</p>
               <div
@@ -74,7 +78,7 @@ class BlogPost extends Component {
                 className="content-list"
               />
             </div>
-          }
+          )}
         />
         <div className="col-xl-7 col-lg-6 col-md-12 col-sm-12 order-10 content">
           <Header

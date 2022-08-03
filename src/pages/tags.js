@@ -13,7 +13,7 @@ const TagPage = ({ data }) => {
 
   allMarkdownRemark.edges.forEach(({ node }) => {
     const { tags } = node.frontmatter;
-    tags.forEach((name) => {
+    tags.forEach(name => {
       if (mapping[name]) {
         mapping[name] += 1;
       } else {
@@ -45,7 +45,7 @@ const TagPage = ({ data }) => {
       <SEO
         title="標籤"
         url="/tags/"
-        siteTitleAlt="Calpa's Blog"
+        siteTitleAlt="Kun's Blog"
         isPost={false}
         description="Tags Page"
         image="https://i.imgur.com/M795H8A.jpg"

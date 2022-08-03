@@ -1,4 +1,4 @@
-@import "../../styles/colors.scss";
+@import '../../styles/colors.scss';
 
 .custom-navbar {
   $item-color: $white;
@@ -20,9 +20,9 @@
       background: transparent;
 
       .brand-logo {
-        background: $black;
+        background: white;
         border-radius: $radius;
-        color: $white;
+        color: black;
         padding: 1px 5px 2px;
       }
 

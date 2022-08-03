@@ -24,7 +24,7 @@ const Footer = () => (
             The code is open source and available at&nbsp;
             <ExternalLink
               href="https://github.com/calpa/gatsby-starter-calpa-blog"
-              title="calpa/gatsby-starter-calpa-blog"
+              title="kun/gatsby-starter-icarus-blog"
             />
           </p>
           <p className="copyright">

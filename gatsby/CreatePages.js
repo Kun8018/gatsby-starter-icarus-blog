@@ -74,7 +74,7 @@ module.exports = ({ actions, graphql }) => {
 
       // 读取目录
       if (categories) {
-        categories.forEach(item => categorySet.add(item));
+        categorySet.add(categories);
       }
 
       // 允许自定义地址
