@@ -37,7 +37,7 @@ module.exports = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       return Promise.reject(result.errors);
     }
@@ -67,7 +67,9 @@ module.exports = ({ actions, graphql }) => {
     // 創建文章頁面
     edges.forEach(({ node }, index) => {
       const { id, frontmatter, fields } = node;
-      const { slug, tags, templateKey, categories, date } = frontmatter;
+      const {
+        slug, tags, templateKey, categories, date,
+      } = frontmatter;
 
       // 讀取標籤
       if (tags) {
@@ -105,7 +107,7 @@ module.exports = ({ actions, graphql }) => {
     });
 
     // 創建标签頁面
-    tagSet.forEach(tag => {
+    tagSet.forEach((tag) => {
       createPage({
         path: `/tag/${tag}`,
         component: path.resolve('src/templates/tag.js'),
@@ -116,7 +118,7 @@ module.exports = ({ actions, graphql }) => {
     });
 
     // 創建归档頁面
-    archiveSet.forEach(archive => {
+    archiveSet.forEach((archive) => {
       createPage({
         path: `/archive/${archive}`,
         component: path.resolve('src/templates/archive.js'),
@@ -127,7 +129,7 @@ module.exports = ({ actions, graphql }) => {
     });
 
     // 創建目录頁面
-    return categorySet.forEach(category => {
+    return categorySet.forEach((category) => {
       createPage({
         path: `/category/${category}`,
         component: path.resolve('src/templates/category.js'),
