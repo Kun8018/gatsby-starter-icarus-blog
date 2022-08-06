@@ -6,7 +6,7 @@ import Sidebar from '../components/Sidebar';
 
 const CategoryPage = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark;
-  console.log('pageContext', pageContext);
+
   const { category } = pageContext;
   return (
     <div className="container">
@@ -17,7 +17,7 @@ const CategoryPage = ({ data, pageContext }) => {
         }}
       >
         <Sidebar />
-        <div className="col-xl-10 col-lg-7 col-md-12 col-xs-12 order-2">
+        <div className="col-xl-9 col-lg-7 col-md-12 col-xs-12 order-2">
           <div
             className="col-12"
             style={{

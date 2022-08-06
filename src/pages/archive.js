@@ -1,20 +1,25 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
 import SEO from '../components/SEO';
 import Sidebar from '../components/Sidebar';
 import Category from '../components/Category';
 
-const CategoryPage = ({ data }) => {
+const ArchivePage = ({ data, isPage }) => {
+  console.log('data', data);
   const { allMarkdownRemark } = data;
-
+  console.log('CategoryPage', isPage);
   const mapping = {};
 
   allMarkdownRemark.edges.forEach(({ node }) => {
-    const { categories } = node.frontmatter;
-    if (mapping[categories]) {
-      mapping[categories] += 1;
+    const { date } = node.frontmatter;
+    const formatDate = dayjs(date).format('MMM-YYYY');
+
+    if (mapping[formatDate]) {
+      mapping[formatDate] += 1;
     } else {
-      mapping[categories] = 1;
+      mapping[formatDate] = 1;
     }
   });
 
@@ -26,8 +31,8 @@ const CategoryPage = ({ data }) => {
           margin: 15,
         }}
       >
-        <Sidebar />
-        <Category categories={mapping} />
+        {isPage && <Sidebar />}
+        <Category categories={mapping} prefix="archive" />
         <div className="col-xl-3 col-lg-1 order-3" />
       </div>
       <SEO
@@ -42,13 +47,21 @@ const CategoryPage = ({ data }) => {
   );
 };
 
+ArchivePage.propTypes = {
+  isPage: PropTypes.boolean,
+};
+
+ArchivePage.defaultProps = {
+  isPage: true,
+};
+
 export const pageQuery = graphql`
-  query getAllCategory {
+  query getAllArchive {
     allMarkdownRemark {
       edges {
         node {
           frontmatter {
-            categories
+            date
           }
         }
       }
@@ -56,4 +69,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default CategoryPage;
+export default ArchivePage;

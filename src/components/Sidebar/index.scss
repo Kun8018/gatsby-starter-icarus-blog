@@ -1,4 +1,4 @@
-@import "../../styles/colors";
+@import '../../styles/colors';
 
 .intro-header {
   background: $white;
@@ -9,7 +9,6 @@
   @media (max-width: 992px) {
     margin-bottom: 15px;
   }
-  margin-left: auto;
   padding-bottom: 10px;
 
   .about-me {

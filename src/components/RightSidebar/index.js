@@ -3,9 +3,10 @@ import { Link, StaticQuery, graphql } from 'gatsby';
 import './index.scss';
 import dayjs from 'dayjs';
 import PropTypes from 'prop-types';
+import ArchivePage from '../../pages/archive.js';
 
-const RightSidebar = ({ latestPosts }) => {
-  console.log('latestPosts', latestPosts);
+const RightSidebar = ({ latestPosts, allMarkdownRemark }) => {
+  console.log('latestPosts', latestPosts, allMarkdownRemark);
   return (
     <div className="col-xl-3 col-lg-1 order-3">
       <div className="box">
@@ -31,6 +32,7 @@ const RightSidebar = ({ latestPosts }) => {
       </div>
       <div className="box" style={{ marginTop: '20px' }}>
         Archive
+        <ArchivePage data={{ allMarkdownRemark }} isPage={false} />
       </div>
     </div>
   );
@@ -56,8 +58,18 @@ export default () => (
             }
           }
         }
+
+        allMarkdownRemark {
+          edges {
+            node {
+              frontmatter {
+                date
+              }
+            }
+          }
+        }
       }
     `}
-    render={data => <RightSidebar {...data.limited} />}
+    render={data => <RightSidebar {...data.limited} {...data} />}
   />
 );

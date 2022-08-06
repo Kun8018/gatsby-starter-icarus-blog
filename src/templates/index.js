@@ -33,7 +33,9 @@ const NavLink = ({ test, url, text }) => {
 };
 
 const Page = ({ pageContext, location }) => {
-  const { group, index, first, last, pathPrefix } = pageContext;
+  const {
+    group, index, first, last, pathPrefix,
+  } = pageContext;
 
   const previousUrl = index - 1 === 1 ? '' : `/${pathPrefix}/${index - 1}`;
   const nextUrl = `/${pathPrefix}/${index + 1}`;

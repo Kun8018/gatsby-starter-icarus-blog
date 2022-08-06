@@ -1,5 +1,3 @@
-const path = require('path');
-
 const eslintrc = {
   extends: 'airbnb',
   plugins: ['react', 'jsx-a11y', 'import'],

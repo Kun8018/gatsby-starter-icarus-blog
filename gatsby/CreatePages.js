@@ -1,5 +1,6 @@
 const path = require('path');
 const createPaginatedPages = require('gatsby-paginate');
+const dayjs = require('dayjs');
 
 module.exports = ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -45,6 +46,7 @@ module.exports = ({ actions, graphql }) => {
 
     const tagSet = new Set();
     const categorySet = new Set();
+    const archiveSet = new Set();
 
     createPaginatedPages({
       edges,
@@ -65,7 +67,7 @@ module.exports = ({ actions, graphql }) => {
     // 創建文章頁面
     edges.forEach(({ node }, index) => {
       const { id, frontmatter, fields } = node;
-      const { slug, tags, templateKey, categories } = frontmatter;
+      const { slug, tags, templateKey, categories, date } = frontmatter;
 
       // 讀取標籤
       if (tags) {
@@ -75,6 +77,11 @@ module.exports = ({ actions, graphql }) => {
       // 读取目录
       if (categories) {
         categorySet.add(categories);
+      }
+
+      // 读取归档
+      if (date) {
+        archiveSet.add(dayjs(date).format('MMM-YYYY'));
       }
 
       // 允许自定义地址
@@ -97,7 +104,7 @@ module.exports = ({ actions, graphql }) => {
       });
     });
 
-    // 創建標籤頁面
+    // 創建标签頁面
     tagSet.forEach(tag => {
       createPage({
         path: `/tag/${tag}`,
@@ -108,7 +115,18 @@ module.exports = ({ actions, graphql }) => {
       });
     });
 
-    // 創建標籤頁面
+    // 創建归档頁面
+    archiveSet.forEach(archive => {
+      createPage({
+        path: `/archive/${archive}`,
+        component: path.resolve('src/templates/archive.js'),
+        context: {
+          archive,
+        },
+      });
+    });
+
+    // 創建目录頁面
     return categorySet.forEach(category => {
       createPage({
         path: `/category/${category}`,

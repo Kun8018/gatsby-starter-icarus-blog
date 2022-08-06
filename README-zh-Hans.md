@@ -1,4 +1,4 @@
-## Calpa 的技术博客脚手架
+## Icarus 主题 的 Gatsby 技术博客脚手架
 
 [![GitHub license](https://img.shields.io/github/license/calpa/gatsby-starter-calpa-blog.svg)](https://github.com/calpa/gatsby-starter-calpa-blog/blob/master/LICENSE)
 [![Accept Pull Requests](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/calpa/gatsby-starter-calpa-blog/pulls)
@@ -12,7 +12,7 @@
 
 ![Home Page](https://i.imgur.com/lVUwIZC.png)
 
-透过这个腳手架，你可以快速建立一个如同 [Calpa's Blog](https://calpa.me) 的博客系统。
+透过这个腳手架，你可以快速建立一个如同 [Kun's Blog](https://kunzhang.me) 的博客系统。
 
 ## 功能
 
@@ -36,7 +36,7 @@
 
 ### 数据来源
 
-你可以直接修改 `/src/content/*.md`，或者是使用 [Netlify-cms](https://www.netlifycms.org) 來編輯文章。
+你可以直接修改 `/src/content/*.md`，或者是使用 [Netlify-cms](https://www.netlifycms.org) 来编辑文章。
 
 ### 可自定的地方
 

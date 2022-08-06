@@ -1,13 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import dayjs from 'dayjs';
 import Card from '../components/Card';
 import SEO from '../components/SEO';
 import Sidebar from '../components/Sidebar';
 
-// eslint-disable-next-line react/prop-types
-const TagPage = ({ data, pageContext }) => {
+const CategoryPage = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark;
-  const { tag } = pageContext;
+
+  const { archive } = pageContext;
+  const filterEdges = (edges || []).filter(
+    item => dayjs(item.node.frontmatter.date).format('MMM-YYYY') === archive,
+  );
   return (
     <div className="container">
       <div
@@ -25,38 +29,34 @@ const TagPage = ({ data, pageContext }) => {
               margin: 15,
             }}
           >
-            {edges.length}
+            {filterEdges.length}
             &nbsp;Articles in&nbsp;
-            {tag}
+            {archive}
           </div>
-          {edges.map(({ node }) => (
-            <Card {...node.frontmatter} key={node.id} />
-          ))}
+          {filterEdges.map(({ node }) => {
+            console.log('node', node);
+            return <Card {...node.frontmatter} key={node.id} />;
+          })}
         </div>
 
         <div className="col-xl-2 col-lg-1 order-3" />
       </div>
 
       <SEO
-        title={tag}
-        url={`/tag/${tag}`}
-        siteTitleAlt="Calpa's Blog"
+        title={archive}
+        url={`/archive/${archive}`}
+        siteTitleAlt="Kun's Blog"
         isPost={false}
-        description={tag}
+        description={archive}
         image="https://i.imgur.com/M795H8A.jpg"
       />
     </div>
   );
 };
 
-export default TagPage;
-
 export const pageQuery = graphql`
-  query tagQuery($tag: [String!]) {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: frontmatter___date }
-      filter: { frontmatter: { tags: { in: $tag } } }
-    ) {
+  query ArchiveQuery {
+    allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
       edges {
         node {
           id
@@ -75,3 +75,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default CategoryPage;

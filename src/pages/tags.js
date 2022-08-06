@@ -13,7 +13,7 @@ const TagPage = ({ data }) => {
 
   allMarkdownRemark.edges.forEach(({ node }) => {
     const { tags } = node.frontmatter;
-    tags.forEach(name => {
+    tags.forEach((name) => {
       if (mapping[name]) {
         mapping[name] += 1;
       } else {
