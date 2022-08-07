@@ -17,11 +17,11 @@
   },
   "title": "Kun 的技术博客",
   "gitalk": {
-    "repo": "calpa.github.io",
-    "admin": ["calpa, kun"],
-    "owner": "calpa",
-    "clientID": "18255f031b5e11edd98a",
-    "clientSecret": "2ff6331da9e53f9a91bcc991d38d550c85026714",
+    "repo": "Kun8018.github.io",
+    "admin": ["Kun8018"],
+    "owner": "Kun8018",
+    "clientID": "d5617923f3d953e8de05",
+    "clientSecret": "8ec9c37570bbd4ba4aee9d9d90b53ce4eca442e8",
     "pagerDirection": "first",
     "distractionFreeMode": true
   },
@@ -33,9 +33,7 @@
     }
   ],
   "iconUrl": "https://s1.ax1x.com/2020/03/27/G9OfNn.th.png",
-  "wordings": [
-    "IT学徒、技术民工、斜杠青年,机器人爱好者、摄影爱好 PS、PR、LR、达芬奇潜在学习者"
-  ],
+  "wordings": ["IT学徒、技术民工、斜杠青年,机器人爱好者、摄影爱好 PS、PR、LR、达芬奇潜在学习者"],
   "gaTrackId": "UA-84737574-3",
   "navbarList": [
     {

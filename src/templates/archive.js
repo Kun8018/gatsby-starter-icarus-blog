@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
 import Card from '../components/Card';
 import SEO from '../components/SEO';
 import Sidebar from '../components/Sidebar';
@@ -34,7 +35,6 @@ const CategoryPage = ({ data, pageContext }) => {
             {archive}
           </div>
           {filterEdges.map(({ node }) => {
-            console.log('node', node);
             return <Card {...node.frontmatter} key={node.id} />;
           })}
         </div>

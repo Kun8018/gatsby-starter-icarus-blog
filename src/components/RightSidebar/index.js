@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import ArchivePage from '../../pages/archive.js';
 
 const RightSidebar = ({ latestPosts, allMarkdownRemark }) => {
-  console.log('latestPosts', latestPosts, allMarkdownRemark);
   return (
     <div className="col-xl-3 col-lg-1 order-3">
       <div className="box">

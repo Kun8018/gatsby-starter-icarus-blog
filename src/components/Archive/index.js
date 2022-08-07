@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
 import classNames from 'classnames';
 import './index.scss';
 
-const Category = ({ categories, prefix, isPage }) => {
-  const arr = Object.keys(categories);
+const Archive = ({ categories, prefix, isPage }) => {
+  const arr = Object.keys(categories).sort(function(o1, o2) {
+    return o2 - o1;
+  });
+  dayjs.locale('zh-cn');
 
   return (
     <div
@@ -15,10 +19,10 @@ const Category = ({ categories, prefix, isPage }) => {
       })}
     >
       {(arr || []).map(category => {
-        if (category === 'null') return;
+        const date = dayjs.unix(category).format('MMM-YYYY');
         return (
-          <a href={`/${prefix}/${category}`} className="category">
-            {category}
+          <a href={`/${prefix}/${date}`} className="category">
+            {date}
             &nbsp;
             <span className="number">{categories[category]}</span>
           </a>
@@ -28,16 +32,16 @@ const Category = ({ categories, prefix, isPage }) => {
   );
 };
 
-Category.propTypes = {
+Archive.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.node),
   prefix: PropTypes.string,
   isPage: PropTypes.boolean,
 };
 
-Category.defaultProps = {
+Archive.defaultProps = {
   categories: [],
   prefix: 'category',
   isPage: true,
 };
 
-export default Category;
+export default Archive;

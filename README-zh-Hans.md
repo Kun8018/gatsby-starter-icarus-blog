@@ -171,9 +171,9 @@ redirectors: [
 gitalk: {
     clientID: '18255f031b5e11edd98a',
     clientSecret: '2ff6331da9e53f9a91bcc991d38d550c85026714',
-    repo: 'calpa.github.io',
-    owner: 'calpa',
-    admin: ['calpa'],
+    repo: 'Ku年8018.github.io',
+    owner: 'Kun8018',
+    admin: ['Kun8018'],
     distractionFreeMode: true,
   },
 }

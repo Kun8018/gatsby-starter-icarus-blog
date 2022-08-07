@@ -11,6 +11,8 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-webpack-bundle-analyzer',
+    'gatsby-plugin-use-dark-mode',
+    'gatsby-plugin-material-ui',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -43,6 +45,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-external-links',
           },
+          'gatsby-remark-reading-time',
         ],
       },
     },

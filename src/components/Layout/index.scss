@@ -1,4 +1,4 @@
-@import "../../styles/colors.scss"; // Colors
+@import '../../styles/colors.scss'; // Colors
 // Content
 
 .fadeIn {
@@ -17,10 +17,24 @@
 }
 
 .layout {
-  // Pixiv background style
-  background-color: $bg;
-
   img {
     max-width: 100%;
   }
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode {
+  background-color: #212121;
+  color: #999;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode blockquote {
+  color: #999;
+  border-left: 0.32813rem solid #999;
 }

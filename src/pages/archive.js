@@ -4,17 +4,15 @@ import dayjs from 'dayjs';
 import PropTypes from 'prop-types';
 import SEO from '../components/SEO';
 import Sidebar from '../components/Sidebar';
-import Category from '../components/Category';
+import Archive from '../components/Archive';
 
 const ArchivePage = ({ data, isPage }) => {
-  console.log('data', data);
   const { allMarkdownRemark } = data;
-  console.log('CategoryPage', isPage);
   const mapping = {};
 
   allMarkdownRemark.edges.forEach(({ node }) => {
     const { date } = node.frontmatter;
-    const formatDate = dayjs(date).format('MMM-YYYY');
+    const formatDate = dayjs(date).unix();
 
     if (mapping[formatDate]) {
       mapping[formatDate] += 1;
@@ -27,12 +25,12 @@ const ArchivePage = ({ data, isPage }) => {
     <div className="container">
       <div
         className="row"
-        style={{
-          margin: 15,
-        }}
+        // style={{
+        //   margin: 15,
+        // }}
       >
         {isPage && <Sidebar />}
-        <Category categories={mapping} prefix="archive" />
+        <Archive categories={mapping} prefix="archive" isPage={isPage} />
         <div className="col-xl-3 col-lg-1 order-3" />
       </div>
       <SEO

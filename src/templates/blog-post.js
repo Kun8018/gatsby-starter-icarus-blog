@@ -40,7 +40,6 @@ class BlogPost extends Component {
   componentDidMount() {
     const { frontmatter, id: graphqlId } = this.data.content.edges[0].node;
     const { title, id } = frontmatter;
-
     const GitTalkInstance = new Gitalk({
       ...gitalk,
       title,
@@ -52,20 +51,15 @@ class BlogPost extends Component {
   render() {
     const { node } = this.data.content.edges[0];
 
-    const {
-      html, frontmatter, fields, excerpt, tableOfContents,
-    } = node;
-    console.log('node', node);
+    const { html, frontmatter, fields, excerpt, tableOfContents } = node;
     const { slug } = fields;
 
-    const {
-      date, headerImage, title, thumbnail,
-    } = frontmatter;
+    const { date, headerImage, title, thumbnail } = frontmatter;
 
     return (
       <div className="row post order-2">
         <Sidebar
-          content={(
+          content={
             <div>
               <p>目录</p>
               <div
@@ -78,7 +72,7 @@ class BlogPost extends Component {
                 className="content-list"
               />
             </div>
-          )}
+          }
         />
         <div className="col-xl-7 col-lg-6 col-md-12 col-sm-12 order-10 content">
           <Header
@@ -97,11 +91,7 @@ class BlogPost extends Component {
               title="關注和 Star 本博客"
             />
             或者
-            <ExternalLink
-              href="https://github.com/calpa/"
-              title="關注我的 Github"
-            />
-            。
+            <ExternalLink href="https://github.com/calpa/" title="關注我的 Github" />。
           </div>
 
           <div id="gitalk-container" />
@@ -126,7 +116,13 @@ export const pageQuery = graphql`
   fragment post on MarkdownRemark {
     fields {
       slug
+      readingTime {
+        time
+        words
+        minutes
+      }
     }
+    timeToRead
     frontmatter {
       id
       title

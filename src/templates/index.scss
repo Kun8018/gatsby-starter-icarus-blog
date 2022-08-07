@@ -1,3 +1,5 @@
+@import '../styles/colors.scss';
+
 .navlink {
   border: solid 1px #d7d7d7;
   border-radius: 0.2rem;
@@ -11,4 +13,21 @@
 
 .homepage {
   padding: 1.5rem 3.2rem;
+}
+
+body.light-mode {
+  background-color: $bg;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #212121;
+  color: #999;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode blockquote {
+  color: #999;
+  border-left: 0.32813rem solid #999;
 }

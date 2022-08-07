@@ -33,32 +33,28 @@ const NavLink = ({ test, url, text }) => {
 };
 
 const Page = ({ pageContext, location }) => {
-  const {
-    group, index, first, last, pathPrefix,
-  } = pageContext;
-
+  const { group, index, first, last, pathPrefix } = pageContext;
   const previousUrl = index - 1 === 1 ? '' : `/${pathPrefix}/${index - 1}`;
   const nextUrl = `/${pathPrefix}/${index + 1}`;
-
+  console.log('group', group);
   return (
     <React.Fragment>
       <div className="row homepage">
         <Sidebar />
         <div className="col-xl-6 col-lg-7 col-md-12 col-xs-12 order-2">
           {group.map(({ node }) => {
-            const { hidden } = node.frontmatter;
+            const { timeToRead, frontmatter, fields } = node;
+            console.log('timeToRead', timeToRead);
+            const { hidden } = frontmatter;
             if (hidden === true) {
               return <div />;
             }
             return (
               <Card
-                {...node.frontmatter}
-                url={
-                  node.frontmatter.slug
-                    ? node.frontmatter.slug
-                    : node.fields.slug
-                }
-                key={node.fields.slug}
+                {...frontmatter}
+                timeToRead={timeToRead}
+                url={frontmatter.slug ? frontmatter.slug : fields.slug}
+                key={fields.slug}
               />
             );
           })}
