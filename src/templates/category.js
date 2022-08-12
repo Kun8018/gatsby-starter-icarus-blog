@@ -25,9 +25,10 @@ const CategoryPage = ({ data, pageContext }) => {
               margin: 15,
             }}
           >
-            {edges.length}
-            &nbsp;Articles in&nbsp;
             {category}
+            &nbsp;发布了&nbsp;
+            {edges.length}
+            篇文章
           </div>
           {edges.map(({ node }) => (
             <Card {...node.frontmatter} key={node.id} />

@@ -68,12 +68,12 @@ module.exports = ({ actions, graphql }) => {
       },
     });
 
-    // 創建文章頁面
+    // 创建文章页面
     edges.forEach(({ node }, index) => {
       const { id, frontmatter, fields } = node;
       const { slug, tags, templateKey, categories, date } = frontmatter;
 
-      // 讀取標籤
+      // 读取标签
       if (tags) {
         tags.forEach(item => tagSet.add(item));
       }

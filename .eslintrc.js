@@ -1,5 +1,6 @@
 const eslintrc = {
-  // extends: 'airbnb',
+  // parserOptions: { ecmaVersion: 2017 },
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
   plugins: ['react', 'jsx-a11y', 'import'],
   settings: {
     'import/core-modules': [
@@ -17,18 +18,15 @@ const eslintrc = {
     'no-shadow': 'warn',
     'no-console': 0,
     'linebreak-style': 0,
-    'import/extensions': [
-      2,
-      'never',
-      { 'web.js': 'never', json: 'never', css: 'always' },
-    ],
+    'import/extensions': [2, 'never', { 'web.js': 'never', json: 'never', css: 'always' }],
     'import/no-extraneous-dependencies': [2, { devDependencies: true }],
     'import/no-unresolved': [2, { ignore: ['antd'] }],
     'no-underscore-dangle': ['error', { allow: ['_id'] }],
   },
   env: {
     browser: true,
+    // es6: true,
   },
 };
 
-module.exports = eslintrc;
+export default eslintrc;

@@ -15,7 +15,6 @@ import Content from '../components/Content';
 import SEO from '../components/SEO';
 
 import Header from '../components/Header/index.jsx';
-// import TableOfContent from '../components/TableOfContent';
 import ShareBox from '../components/ShareBox';
 
 import { config } from '../../data';
@@ -85,13 +84,13 @@ class BlogPost extends Component {
 
           <Content post={html} />
           <div className="m-message" style={bgWhite}>
-            如果你觉得我的文章对你有帮助的话，希望可以推薦和交流一下。歡迎
+            如果你觉得我的文章对你有帮助的话，希望可以推荐和交流一下。欢迎
             <ExternalLink
-              href="https://github.com/calpa/gatsby-starter-calpa-blog"
+              href="https://github.com/kun8018/gatsby-starter-icarus-blog"
               title="關注和 Star 本博客"
             />
             或者
-            <ExternalLink href="https://github.com/calpa/" title="關注我的 Github" />。
+            <ExternalLink href="https://github.com/kun8018/" title="关注我的 Github" />。
           </div>
 
           <div id="gitalk-container" />
@@ -102,7 +101,7 @@ class BlogPost extends Component {
         <SEO
           title={title}
           url={slug}
-          siteTitleAlt="Calpa's Blog"
+          siteTitleAlt="Kun's Blog"
           isPost={false}
           description={excerpt}
           image={headerImage || thumbnail || 'https://i.imgur.com/M795H8A.jpg'}

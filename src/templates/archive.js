@@ -30,9 +30,10 @@ const CategoryPage = ({ data, pageContext }) => {
               margin: 15,
             }}
           >
-            {filterEdges.length}
-            &nbsp;Articles in&nbsp;
             {archive}
+            &nbsp;发布了&nbsp;
+            {filterEdges.length}
+            篇文章呢
           </div>
           {filterEdges.map(({ node }) => {
             return <Card {...node.frontmatter} key={node.id} />;

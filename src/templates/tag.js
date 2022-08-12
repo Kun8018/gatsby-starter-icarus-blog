@@ -25,9 +25,10 @@ const TagPage = ({ data, pageContext }) => {
               margin: 15,
             }}
           >
-            {edges.length}
-            &nbsp;Articles in&nbsp;
             {tag}
+            &nbsp;发布了&nbsp;
+            {edges.length}
+            篇文章
           </div>
           {edges.map(({ node }) => (
             <Card {...node.frontmatter} key={node.id} />

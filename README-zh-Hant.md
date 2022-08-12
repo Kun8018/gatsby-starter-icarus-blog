@@ -206,7 +206,7 @@ gitalk: {
 
 ## 貢獻
 
-請閱讀 [CONTRIBUTING.md](.github/CONTRIBUTING.md) 獲取更多信息。
+請阅读 [CONTRIBUTING.md](.github/CONTRIBUTING.md) 獲取更多信息。
 
 ## 聯系
 
