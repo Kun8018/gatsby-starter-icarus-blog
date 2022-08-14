@@ -36,7 +36,7 @@ const Card = ({
   tags = [],
 }) => {
   dayjs.locale('zh-cn');
-  const formatDate = dayjs(date).fromNow();
+  const formatDate = dayjs(date || '').fromNow();
 
   return (
     <div className="col-sm-12 pb-4">
@@ -52,7 +52,7 @@ const Card = ({
           <div className="content">
             <div className="stats">
               <span className="date">{formatDate}</span>
-              {tags.map(name => (
+              {(tags || []).map(name => (
                 <Tag name={name} key={name} />
               ))}
             </div>

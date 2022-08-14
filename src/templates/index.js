@@ -44,7 +44,6 @@ const Page = ({ pageContext, location }) => {
         <div className="col-xl-6 col-lg-7 col-md-12 col-xs-12 order-2">
           {group.map(({ node }) => {
             const { timeToRead, frontmatter, fields } = node;
-            console.log('timeToRead', timeToRead);
             const { hidden } = frontmatter;
             if (hidden === true) {
               return <div />;
