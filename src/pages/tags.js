@@ -13,7 +13,7 @@ const TagPage = ({ data }) => {
 
   allMarkdownRemark.edges.forEach(({ node }) => {
     const { tags } = node.frontmatter;
-    tags.forEach((name) => {
+    (tags || []).forEach(name => {
       if (mapping[name]) {
         mapping[name] += 1;
       } else {
@@ -22,9 +22,7 @@ const TagPage = ({ data }) => {
     });
   });
 
-  const tags = Array.from(Object.keys(mapping)).sort(
-    (b, a) => mapping[a] - mapping[b],
-  );
+  const tags = Array.from(Object.keys(mapping)).sort((b, a) => mapping[a] - mapping[b]);
 
   return (
     <div className="container">
