@@ -1,18 +1,17 @@
-## Gatsby Starter - Calpa's Blog
+## Gatsby Icarus Theme Starter - Kun's Blog
 
-[![GitHub license](https://img.shields.io/github/license/calpa/gatsby-starter-calpa-blog.svg)](https://github.com/calpa/gatsby-starter-calpa-blog/blob/master/LICENSE)
-[![Accept Pull Requests](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/calpa/gatsby-starter-calpa-blog/pulls)
+[![GitHub license](https://img.shields.io/github/license/calpa/gatsby-starter-calpa-blog.svg)](https://github.com/Kun8018/gatsby-starter-icarus-blog/blob/master/LICENSE)
+[![Accept Pull Requests](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Kun8018/gatsby-starter-icarus-blog/pulls)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/calpa/gatsby-starter-calpa-blog.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fcalpa%2Fblog)
 [![Greenkeeper badge](https://badges.greenkeeper.io/calpa/gatsby-starter-calpa-blog.svg)](https://greenkeeper.io/)
-[![Build Status](https://api.travis-ci.org/calpa/gatsby-starter-calpa-blog.svg?branch=master)](https://github.com/calpa/gatsby-starter-calpa-blog/blob/master/.travis.yml)
-[![CodeFactor](https://www.codefactor.io/repository/github/calpa/gatsby-starter-calpa-blog/badge)](https://www.codefactor.io/repository/github/calpa/gatsby-starter-calpa-blog)
+[![Build Status](https://api.travis-ci.org/calpa/gatsby-starter-calpa-blog.svg?branch=master)](https://github.com/Kun8018/gatsby-starter-icarus-blog/blob/master/.travis.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/69c4fc63-9bed-44e4-aee4-77ceb456f770/deploy-status)](https://app.netlify.com/sites/calpa/deploys)
 
-[繁體中文](README-zh-Hant.md) | [简体中文](README-zh-Hans.md) | [English](README.md)
+[简体中文](README-zh-Hans.md) | [English](README.md)
 
 ![Home Page](https://i.imgur.com/lVUwIZC.png)
 
-Build a blog system like [Calpa's Blog](https://calpa.me) in ease.
+Build a blog system like [Kun's Blog](https://kunzhang.me) in ease.
 
 If you like this project, please don't hesitate to star it. Thank you.
 
@@ -20,7 +19,7 @@ If you like this project, please don't hesitate to star it. Thank you.
 
 ### Structure
 
-1. GatsbyJS v2, faster than faster
+1. GatsbyJS v3, faster than faster
 1. Google Analytics
 1. Offline support
 1. Web App Manifest
@@ -30,13 +29,19 @@ If you like this project, please don't hesitate to star it. Thank you.
 1. Search Engine Optimization
 1. Parse Markdown in high speed (powered by [gatsby-transformer-remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/))
 1. Support to sitemap
+1. Download as a desktop App
+1. Support typescript
+1. Support Editing with Notion(RoadMap)
+1. Support Search inside Site(RoadMap)
 
 ### Design
 
 1. Pagination
-1. Responsive Web Design
-1. Font Awesome is auto loaded (powered by [react-fontawesome](https://github.com/FortAwesome/react-fontawesome))
-1. Scroll smoothly (powered by [smooth-scroll](https://github.com/cferdinandi/smooth-scroll))
+2. Different Tags
+3. Responsive Web Design
+4. Font Awesome is auto loaded (powered by [react-fontawesome](https://github.com/FortAwesome/react-fontawesome))
+5. Scroll smoothly (powered by [smooth-scroll](https://github.com/cferdinandi/smooth-scroll))
+6. theme-like Icarus in Hexo
 
 ### Data Source
 
@@ -44,7 +49,7 @@ You can edit the posts in `/src/content/*.md`, or using Netlify-cms to edit the 
 
 ### Customization for developers
 
-1. SEO
+1. Optimize code
 1. Styled using SCSS
 1. Data Source
 
@@ -69,7 +74,7 @@ Use the button below to code with the blog system:
 ## Prerequisites
 
 1. Git
-1. Node: any 8.x version starting with 8.5.0 or greater
+1. Node: 12.0.0 or higher
 1. A fork of the repo (for any contributions)
 1. A clone of the this repo on your local machine
 
@@ -86,7 +91,10 @@ npm install --global gatsby-cli
 2. Create new Gatsby project using this starter, `awesome-blog` is your blog's folder
 
 ```
-gatsby new awesome-blog https://github.com/calpa/gatsby-starter-calpa-blog
+gatsby new awesome-blog https://github.com/Kun8018/gatsby-starter-icarus-blog
+
+## 使用ssh
+gatsby new test-blog git@github.com:Kun8018/gatsby-starter-icarus-blog
 ```
 
 3. Open the folder
@@ -169,11 +177,11 @@ Gitalk plugin configuration
 
 ```JavaScript
 gitalk: {
-    clientID: '18255f031b5e11edd98a',
-    clientSecret: '2ff6331da9e53f9a91bcc991d38d550c85026714',
-    repo: 'calpa.github.io',
-    owner: 'calpa',
-    admin: ['calpa'],
+    clientID: '',
+    clientSecret: '',
+    repo: 'Kun8018.github.io',
+    owner: 'Kun8018',
+    admin: ['Kun8018'],
     distractionFreeMode: true,
   },
 }
@@ -181,7 +189,7 @@ gitalk: {
 
 ## Deploy
 
-[Calpa's blog](https://calpa.me) is currently using Netlify, though, you may use Github Pages as an alternative.
+[Kun's blog](https://kunzhang.me) is currently using Netlify, though, you may use Github Pages as an alternative.
 
 - Github Pages
 
