@@ -55,7 +55,7 @@ module.exports = ({ actions, graphql }) => {
     createPaginatedPages({
       edges,
       createPage,
-      pageTemplate: 'src/templates/index.js',
+      pageTemplate: 'src/templates/index.tsx',
       context: {
         totalCount: edges.length,
       },

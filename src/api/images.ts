@@ -6,7 +6,7 @@
 // h = Huge Thumbnail (1024×1024)
 const defaultPicture = 'M795H8A.jpg';
 
-const parseImgur = (rawImage, size = 'large') => {
+const parseImgur = (rawImage: string) => {
   if (!rawImage) {
     return `https://i.imgur.com/${defaultPicture}`;
   }
@@ -28,17 +28,17 @@ const parseImgur = (rawImage, size = 'large') => {
   return `https://i.imgur.com/${rawImage}`;
 };
 
-const parseTitle = (title, text) => `title="${title || text}"`;
+const parseTitle = (title: string, text: string) => `title="${title || text}"`;
 
-const parseImageTag = ({ href, title, text }) => `<img class="lozad d-block mx-auto" data-src=${parseImgur(
-  href,
-  'large',
-)} ${parseTitle(title, text)} />`;
+const parseImageTag = ({ href, title, text }: { href: string; title: string; text: string }) =>
+  `<img class="lozad d-block mx-auto" data-src=${parseImgur(href)} ${parseTitle(title, text)} />`;
 
-const getGalleryImage = ({ href, title, text }) => `<a data-fancybox="gallery" href="${parseImgur(
-  href,
-  'huge',
-)}">${parseImageTag({ href, title, text })}</a>`;
+const getGalleryImage = ({ href, title, text }: { href: string; title: string; text: string }) =>
+  `<a data-fancybox="gallery" href="${parseImgur(href)}">${parseImageTag({
+    href,
+    title,
+    text,
+  })}</a>`;
 
 module.exports = {
   parseImgur,
