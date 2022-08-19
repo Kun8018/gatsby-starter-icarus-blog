@@ -23,12 +23,7 @@ const ArchivePage = ({ data, isPage }) => {
 
   return (
     <div className="container">
-      <div
-        className="row"
-        // style={{
-        //   margin: 15,
-        // }}
-      >
+      <div className="row">
         {isPage && <Sidebar />}
         <Archive categories={mapping} prefix="archive" isPage={isPage} />
         <div className="col-xl-3 col-lg-1 order-3" />

@@ -10,15 +10,7 @@ import Friend from './Friend';
 
 import './index.scss';
 
-const {
-  wordings = [],
-  githubUsername,
-  zhihuUsername,
-  email,
-  iconUrl,
-  about,
-  facebook,
-} = config;
+const { wordings = [], githubUsername, zhihuUsername, email, iconUrl, about, facebook } = config;
 
 const Icon = ({ href, icon }) => (
   <a
@@ -36,24 +28,18 @@ const Icon = ({ href, icon }) => (
 const Sidebar = ({ totalCount, latestPosts, content }) => (
   <header className="intro-header site-heading text-center col-xl-3 col-lg-3 col-xs-12 order-lg-1">
     <div className="about-me">
-      <Link to={about} href={about} className="name">
+      <Link to={about} className="name">
         <img className="avatar" src={iconUrl} alt="Kun" />
         <h4>Kun</h4>
       </Link>
       <p className="mb-1">{wordings[0]}</p>
       <p className="mb-3">{wordings[1]}</p>
-      <Icon
-        href={`https://www.zhihu.com/people/${zhihuUsername}`}
-        icon={['fab', 'zhihu']}
-      />
-      <Icon
-        href={`https://github.com/${githubUsername}`}
-        icon={['fab', 'github']}
-      />
+      <Icon href={`https://www.zhihu.com/people/${zhihuUsername}`} icon={['fab', 'zhihu']} />
+      <Icon href={`https://github.com/${githubUsername}`} icon={['fab', 'github']} />
       <Icon href={`mailto:${email}`} icon={['far', 'envelope']} />
-      {facebook
-        && <Icon href={`https://www.facebook.com/${facebook}/`} icon={['fab', 'facebook']} />
-      }
+      {facebook && (
+        <Icon href={`https://www.facebook.com/${facebook}/`} icon={['fab', 'facebook']} />
+      )}
       <Information totalCount={totalCount} posts={latestPosts} />
       {content}
       <Friend />
@@ -102,10 +88,7 @@ export default ({ content }) => (
           totalCount
         }
 
-        limited: allMarkdownRemark(
-          sort: { order: DESC, fields: frontmatter___date }
-          limit: 6
-        ) {
+        limited: allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }, limit: 6) {
           latestPosts: edges {
             node {
               ...cardData

@@ -2,9 +2,15 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-const ExternalLink = ({
-  href, title, target, className, rel,
-}) => (
+type ExternalLinkProps = {
+  href: string;
+  title: string;
+  target?: string;
+  className?: string;
+  rel?: string;
+};
+
+const ExternalLink: React.FC<ExternalLinkProps> = ({ href, title, target, className, rel }) => (
   <a href={href} rel={rel} target={target} className={className}>
     {title}
   </a>

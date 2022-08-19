@@ -9,7 +9,7 @@ import ShareBox from '../components/ShareBox';
 import './index.scss';
 import RightSidebar from '../components/RightSidebar';
 
-const NavLinkText = ({ color, text }) => (
+const NavLinkText = ({ color, text }: { color: string; text: string }) => (
   <div
     className="navlink"
     style={{
@@ -20,7 +20,7 @@ const NavLinkText = ({ color, text }) => (
   </div>
 );
 
-const NavLink = ({ test, url, text }) => {
+const NavLink = ({ test, url, text }: { test: boolean; url: string; text: string }) => {
   if (!test) {
     return <NavLinkText color="#7d7d7d" text={text} />;
   }

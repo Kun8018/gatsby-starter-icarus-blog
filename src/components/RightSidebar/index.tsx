@@ -3,7 +3,7 @@ import { Link, StaticQuery, graphql } from 'gatsby';
 import './index.scss';
 import dayjs from 'dayjs';
 import PropTypes from 'prop-types';
-import ArchivePage from '../../pages/archive.js';
+import ArchivePage from '../../pages/archive';
 
 const RightSidebar = ({ latestPosts, allMarkdownRemark }) => {
   return (
@@ -14,12 +14,9 @@ const RightSidebar = ({ latestPosts, allMarkdownRemark }) => {
           const { frontmatter, fields } = item.node;
           const time = dayjs(frontmatter?.date).format('YYYY-MM-DD');
           return (
-            <Link
-              to={frontmatter.slug || fields.slug}
-              href={frontmatter.slug || fields.slug}
-            >
+            <Link to={frontmatter.slug || fields.slug}>
               <div className="flex">
-                <img src={frontmatter?.thumbnail} alt width="64" height="64" />
+                <img src={frontmatter?.thumbnail} alt="" width="64" height="64" />
                 <div className="text">
                   <p className="time">{time}</p>
                   {frontmatter?.title}
@@ -47,10 +44,7 @@ export default () => (
   <StaticQuery
     query={graphql`
       query getLatestPosts {
-        limited: allMarkdownRemark(
-          sort: { order: DESC, fields: frontmatter___date }
-          limit: 6
-        ) {
+        limited: allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }, limit: 6) {
           latestPosts: edges {
             node {
               ...cardData

@@ -12,15 +12,23 @@ import './index.scss';
 var relativeTime = require('dayjs/plugin/relativeTime');
 dayjs.extend(relativeTime);
 
-const imageStyle = (headerImage, color) => ({
+const imageStyle = (headerImage: string, color: string) => ({
   backgroundColor: `#${color}`,
   backgroundImage: ` url(${parseImgur(headerImage, 'large')})`,
   backgroundSize: 'cover',
   borderRadius: '2px',
 });
 
-const CardHeader = ({ url, image, backgroundColor }) => (
-  <Link to={url} href={url}>
+const CardHeader = ({
+  url,
+  image,
+  backgroundColor,
+}: {
+  url: string;
+  image: string;
+  backgroundColor: string;
+}) => (
+  <Link to={url}>
     <div className="wrapper" style={imageStyle(image, backgroundColor)} />
   </Link>
 );
@@ -56,11 +64,11 @@ const Card = ({
                 <Tag name={name} key={name} />
               ))}
             </div>
-            <Link to={url} href={url}>
+            <Link to={url}>
               <h4 className="title">{title}</h4>
             </Link>
             <p>{description}</p>
-            <Link to={url} href={url} className="read-more">
+            <Link to={url} className="read-more">
               阅读更多
             </Link>
           </div>
@@ -80,8 +88,6 @@ Card.propTypes = {
   description: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
 };
-
-CardHeader.propTypes = Card.propTypes;
 
 Card.defaultProps = {
   headerImage: '',
