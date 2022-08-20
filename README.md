@@ -9,7 +9,7 @@
 
 [简体中文](README-zh-Hans.md) | [English](README.md)
 
-![Home Page](https://i.imgur.com/lVUwIZC.png)
+![Home Page](https://imgur.com/Yf3mnfR.png)
 
 Build a blog system like [Kun's Blog](https://kunzhang.me) in ease.
 

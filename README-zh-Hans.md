@@ -9,7 +9,7 @@
 
 [简体中文](README-zh-Hans.md) | [English](README.md)
 
-![Home Page](https://i.imgur.com/lVUwIZC.png)
+![Home Page](https://imgur.com/Yf3mnfR.png)
 
 通过这个脚手架，你可以快速建立一个如同 [Kun's Blog](https://kun.me) 的博客系統。
 
