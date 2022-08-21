@@ -14,16 +14,13 @@ const Footer = () => (
             Build with&nbsp;
             <ExternalLink href="https://www.gatsbyjs.org/" title="GatsbyJS" />
             &nbsp;and&nbsp;
-            <ExternalLink
-              href="https://reactjs.org/"
-              title={`React ${React.version}`}
-            />
+            <ExternalLink href="https://reactjs.org/" title={`React ${React.version}`} />
             .&nbsp;Hosted on&nbsp;
             <ExternalLink href="https://www.netlify.com/" title="Netlify" />
             <br />
             The code is open source and available at&nbsp;
             <ExternalLink
-              href="https://github.com/calpa/gatsby-starter-calpa-blog"
+              href="https://github.com/Kun8018/gatsby-starter-icarus-blog"
               title="kun/gatsby-starter-icarus-blog"
             />
           </p>

@@ -59,17 +59,11 @@ You can edit the posts in `/src/content/*.md`, or using Netlify-cms to edit the 
 
 Use the button below to build and deploy your own copy of the repository:
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/calpa/gatsby-starter-calpa-blog" target="_blank"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/Kun8018/gatsby-starter-icarus-blog" target="_blank"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
 After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template.
 
 Next, it will build and deploy the new site on Netlify, bringing you to the blog system when the build is complete.
-
-### Code with Codesandbox
-
-Use the button below to code with the blog system:
-
-[![Edit blog](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/calpa/gatsby-starter-calpa-blog/tree/master/)
 
 ## Prerequisites
 
@@ -88,19 +82,20 @@ How to start this project?
 npm install --global gatsby-cli
 ```
 
-2. Create new Gatsby project using this starter, `awesome-blog` is your blog's folder
+2. Create new Gatsby project using this starter, `new-blog` is your blog's folder
 
 ```
-gatsby new awesome-blog https://github.com/Kun8018/gatsby-starter-icarus-blog
+gatsby new new-blog https://github.com/Kun8018/gatsby-starter-icarus-blog
 
 ## 使用ssh
-gatsby new test-blog git@github.com:Kun8018/gatsby-starter-icarus-blog
+gatsby new new-blog git@github.com:Kun8018/gatsby-starter-icarus-blog
 ```
 
 3. Open the folder
 
 ```
-cd awesome-blog
+cd new-blog
+npm install
 ```
 
 4. Run Development Server
@@ -220,6 +215,6 @@ And don't hesitate to put your star and watch this starter project.
 
 ## Contact
 
-If you are interested in this project, please feel free to contact [Calpa Liu](calpaliu@gmail.com).
+If you are interested in this project, please feel free to contact [Kun8018](1027690173@qq.com).
 
 Thanks For Contribute... :)

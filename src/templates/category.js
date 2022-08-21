@@ -41,7 +41,7 @@ const CategoryPage = ({ data, pageContext }) => {
       <SEO
         title={category}
         url={`/tag/${category}`}
-        siteTitleAlt="Calpa's Blog"
+        siteTitleAlt="Kun's Blog"
         isPost={false}
         description={category}
         image="https://i.imgur.com/M795H8A.jpg"
