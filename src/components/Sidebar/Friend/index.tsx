@@ -8,7 +8,7 @@ import './index.scss';
 
 const { friends = [] } = config;
 
-const Friend = () => (
+const Friend: React.FC = () => (
   <div className="friend">
     <p>链接</p>
     {friends.map((friend: Record<string, any>) => (

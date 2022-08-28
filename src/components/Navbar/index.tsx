@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import ReactGA from 'react-ga';
 
-import GithubCorner from '../GithubCorner';
+import GithubCorner from '../GithubCorner/index.tsx';
 
 import DarkModeButton from '../Layout/DarkModeButton';
 import useDarkMode from 'use-dark-mode';
@@ -15,12 +15,7 @@ import { config } from '../../../data';
 
 const { navbarList = [] } = config;
 
-const NavbarClass = [
-  'navbar',
-  'navbar-expand-md',
-  'sticky-top',
-  'custom-navbar',
-];
+const NavbarClass = ['navbar', 'navbar-expand-md', 'sticky-top', 'custom-navbar'];
 
 const Navbar = () => {
   const darkMode = useDarkMode(false);
@@ -60,19 +55,11 @@ const Navbar = () => {
         >
           <FontAwesomeIcon icon={faBars} />
         </button>
-        <GithubCorner url="https://github.com/calpa/gatsby-starter-calpa-blog" />
-        <div
-          className="collapse navbar-collapse flex-row-reverse"
-          id="navbarSupportedContent"
-        >
+        <GithubCorner url="https://github.com/Kun8018/gatsby-starter-icarus-blog" />
+        <div className="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-2">
             {navbarList.map(item => (
-              <NavItem
-                url={item.href}
-                name={item.title}
-                list={item.list}
-                key={item.href}
-              />
+              <NavItem url={item.href} name={item.title} list={item.list} key={item.href} />
             ))}
           </ul>
           <ThemeProvider theme={theme}>

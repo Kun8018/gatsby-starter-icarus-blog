@@ -9,23 +9,26 @@ import Information from './Information';
 import Friend from './Friend';
 
 import './index.scss';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 const { wordings = [], githubUsername, zhihuUsername, email, iconUrl, about, facebook } = config;
 
-const Icon = ({ href, icon }) => (
+const Icon = ({ href, icon, className }: { className: string; icon: IconProp; href: string }) => (
   <a
     target="_blank"
     href={href}
     rel="external nofollow noopener noreferrer"
-    className="custom-icon"
+    className={`${className} custom-icon`}
   >
-    <span className="fa-layers fa-fw fa-2x">
+    <span className="fa-layers fa-fw">
       <FontAwesomeIcon icon={icon} />
     </span>
   </a>
 );
 
-const Sidebar = ({ totalCount, latestPosts, content }) => (
+type SidebarProps = { totalCount: number; latestPosts: any[]; content: string };
+
+const Sidebar: React.FC<SidebarProps> = ({ totalCount, latestPosts, content }) => (
   <header className="intro-header site-heading text-center col-xl-3 col-lg-3 col-xs-12 order-lg-1">
     <div className="about-me">
       <Link to={about} className="name">
@@ -34,13 +37,28 @@ const Sidebar = ({ totalCount, latestPosts, content }) => (
       </Link>
       <p className="mb-1">{wordings[0]}</p>
       <p className="mb-3">{wordings[1]}</p>
-      <Icon href={`https://www.zhihu.com/people/${zhihuUsername}`} icon={['fab', 'zhihu']} />
-      <Icon href={`https://github.com/${githubUsername}`} icon={['fab', 'github']} />
-      <Icon href={`mailto:${email}`} icon={['far', 'envelope']} />
-      {facebook && (
-        <Icon href={`https://www.facebook.com/${facebook}/`} icon={['fab', 'facebook']} />
-      )}
-      <Information totalCount={totalCount} posts={latestPosts} />
+      <div className="iconList">
+        <Icon
+          href={`https://www.zhihu.com/people/${zhihuUsername}`}
+          className="fab fa-github"
+          icon={['fab', 'zhihu']}
+        />
+        <Icon
+          href={`https://github.com/${githubUsername}`}
+          icon={['fab', 'github']}
+          className="fab fa-github"
+        />
+        <Icon href={`mailto:${email}`} icon={['far', 'envelope']} className="fab fa-github" />
+        {facebook && (
+          <Icon
+            href={`https://www.facebook.com/${facebook}/`}
+            className="fab fa-github"
+            icon={['fab', 'facebook']}
+          />
+        )}
+      </div>
+
+      <Information totalCount={totalCount} />
       {content}
       <Friend />
     </div>
@@ -53,7 +71,7 @@ Icon.propTypes = {
 };
 
 Sidebar.propTypes = {
-  totalCount: PropTypes.number,
+  totalCount: PropTypes.number.isRequired,
   latestPosts: PropTypes.array, //eslint-disable-line
   content: PropTypes.string,
 };
