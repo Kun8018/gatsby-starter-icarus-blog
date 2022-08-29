@@ -34,11 +34,18 @@
     }
   }
 
+  .iconList {
+    display: flex;
+    justify-content: space-around;
+  }
+
   .custom-icon {
+    font-size: 1.5em;
+
     i {
-      transition: background 1s cubic-bezier(0.22, 0.61, 0.36, 1);
-      background: $regal-blue;
-      border-radius: 50%;
+      &::before {
+        content: '\f09b';
+      }
     }
 
     &:hover {

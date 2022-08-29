@@ -2,7 +2,7 @@
 import React from 'react';
 
 import Transition from '../Transition';
-import Navbar from '../Navbar';
+import Navbar from '../Navbar/index.tsx';
 import Head from './Head';
 import Footer from '../Footer';
 import './index.scss';

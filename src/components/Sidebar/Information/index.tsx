@@ -2,11 +2,12 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import LatestPost from '../LatestPost';
 import './index.scss';
 
+type InformationProps = { totalCount: number };
+
 // eslint-disable-next-line react/prop-types
-const Information = ({ totalCount, posts }) => (
+const Information: React.FC<InformationProps> = ({ totalCount }) => (
   <div className="d-none d-lg-block information my-2">
     <hr />
     <p>
@@ -20,11 +21,6 @@ const Information = ({ totalCount, posts }) => (
 
 Information.propTypes = {
   totalCount: PropTypes.number.isRequired,
-  posts: PropTypes.array,
-};
-
-Information.defaultProps = {
-  posts: [],
 };
 
 export default Information;
