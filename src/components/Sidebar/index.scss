@@ -1,15 +1,19 @@
 @import '../../styles/colors';
 
-.intro-header {
-  background: $white;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  height: 100%;
+.sideBar {
   position: sticky !important;
   top: 20px;
+}
+
+.intro-header {
+  background: $white;
   @media (max-width: 992px) {
     margin-bottom: 15px;
   }
-  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  padding: 1.5em;
+  box-shadow: 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 
   .about-me {
     .avatar {
@@ -41,6 +45,7 @@
 
   .custom-icon {
     font-size: 1.5em;
+    color: #363636;
 
     i {
       &::before {
@@ -50,10 +55,6 @@
 
     &:hover {
       border-radius: 50%;
-
-      i {
-        background: $light-blue;
-      }
     }
   }
 

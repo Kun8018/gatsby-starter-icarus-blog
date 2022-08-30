@@ -15,7 +15,6 @@ const Information: React.FC<InformationProps> = ({ totalCount }) => (
       {totalCount}
       &nbsp;篇文章
     </p>
-    <hr />
   </div>
 );
 
