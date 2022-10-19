@@ -218,3 +218,5 @@ And don't hesitate to put your star and watch this starter project.
 If you are interested in this project, please feel free to contact [Kun8018](1027690173@qq.com).
 
 Thanks For Contribute... :)
+
+![Alt](https://repobeats.axiom.co/api/embed/3e890301e987ab9bbbc60dc9d22ad8530f370077.svg "Repobeats analytics image")
